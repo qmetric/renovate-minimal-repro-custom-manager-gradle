@@ -3,5 +3,23 @@
   "extends": [
     "config:recommended",
     "group:allNonMajor"
+  ],
+  "packageRules": [
+    {
+      "description": "Disable java updates against default registry",
+      "matchPackagePatterns": ["^org.testcontainers.*"],
+      "enabled": false
+    }
+  ],
+  "customManagers": [
+    {
+      "description": "Update java libraries without version prefixed by v",
+      "customType": "regex",
+      "fileMatch": ["\\.gradle$", "\\.xml$", "\\.kts$"],
+      "matchStrings": ["org.testcontainers:testcontainers:['\"]?(?<currentValue>[^'\"\\sv][^'\"\\s]*)['\"]?"],
+      "extractVersionTemplate": "^(?<version>\\S+)",
+      "depNameTemplate": "testcontainers/testcontainers-java",
+      "datasourceTemplate": "github-releases"
+    }
   ]
 }
