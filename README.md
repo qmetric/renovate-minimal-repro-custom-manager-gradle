@@ -6,11 +6,11 @@ Then replace the current `h1` with the Renovate Issue/Discussion number.
 
 ## Current behavior
 
-Explain the current behavior here.
+Renovate fails to create a PR to "Update all non-major dependencies".
 
 ## Expected behavior
 
-Explain the expected behavior here.
+Renovate should raise a PR to "Update all non-major dependencies". This PR should include upgrades to junit:junit and net.bytebuddy:byte-buddy from the public registry, and also org.testcontainers:testcontainers from a custom manager that's pulling the version from github releases.
 
 ## Link to the Renovate issue or Discussion
 
